@@ -1,4 +1,5 @@
 import url from 'url'
+import { PushNotificationResult } from '../contracts/interface';
 import { InvalidEntry, toRoman } from '../number-roman-converter';
 
 /**
@@ -9,16 +10,15 @@ const errorMessageMapping : Map<InvalidEntry, string> = new Map<InvalidEntry,str
 errorMessageMapping.set(InvalidEntry.MustBeInteger, "Please provide a valid integer");
 errorMessageMapping.set(InvalidEntry.MustBeBetween1And99, "Please provide a integer within 1 and 99");
 
-type HandlerResult = {status:200|400, body:string };
 
-function invalidResponse(entry: InvalidEntry): HandlerResult{
+function invalidResponse(entry: InvalidEntry): PushNotificationResult{
     return {
         status: 400,
         body: errorMessageMapping.get(entry)!
     };
 }
 
-function successResponse(result: string): HandlerResult {
+function successResponse(result: string): PushNotificationResult {
     return {
         status: 200,
         body: result
@@ -26,7 +26,7 @@ function successResponse(result: string): HandlerResult {
 }
 
 
-export function romanConvertionHandler(url: url.UrlWithParsedQuery) : HandlerResult
+export function romanConvertionHandler(url: url.UrlWithParsedQuery) : PushNotificationResult
 {
     const {integer} = url.query;
     if(!integer || typeof integer !== "string" || !Number.isInteger(parseFloat(integer)))
