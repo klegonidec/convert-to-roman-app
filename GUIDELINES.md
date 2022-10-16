@@ -33,3 +33,5 @@ src/
 
 Current integration of TypeScript in limited for the Front-end, since it use the same configuration as the node web application.
 It will be enough for now, but will need a rework to use its own tsconfig for more advanced usage.
+
+Current implementation in Front-End is dependent of the `fetch` Javascript API, [which is not usable in some browser](https://caniuse.com/fetch)
