@@ -1,0 +1,11 @@
+.error {
+    color:red;
+}
+
+input:invalid {
+    border: 2px dashed red;
+  }
+
+form > * {
+    display: block;
+}
