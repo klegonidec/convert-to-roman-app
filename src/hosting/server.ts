@@ -2,6 +2,7 @@ import http from "http";
 
 import { handleStaticFiles } from "./static-files.handler";
 import { handleApiCall } from "./api.handler";
+import { handleEventPushCall } from "./sse/convert-event.handler";
 
 
 export function initServer(port: number) {
@@ -10,6 +11,7 @@ export function initServer(port: number) {
     
       // Define http pipeline : Treat Api calls in first, static files in lasts
       if(await handleApiCall(req,res)) return;
+      if(await handleEventPushCall(req,res)) return;
       if(await handleStaticFiles(req,res)) return;
    });
 

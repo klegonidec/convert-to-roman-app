@@ -38,4 +38,4 @@ You need to have globally available
 - Using Visual Studio Code, you can launch it in debug with  _[DEBUG] Launch_ 
 
 
-You can read `GUIDELINE.md` to understand what drived the implementation.
+You can read `GUIDELINE.md` to understand what drove the implementation.

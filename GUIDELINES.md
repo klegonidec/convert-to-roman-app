@@ -7,11 +7,13 @@
 
 # Architecture
 
-- The project is spliting responsabilities across 4 folders
+- The project is spliting responsabilities across 5 folders
 ``` text
 src/
     api/
         Adapters between Hosting and Domain
+    contract/
+        Folder containing types that are shareble between Back-end and Front-End
     hosting/
         Expose the Web Application, both apis and static files 
     number-roman-converter/
@@ -31,7 +33,7 @@ src/
 
 # Limitation
 
-Current integration of TypeScript in limited for the Front-end, since it use the same configuration as the node web application.
-It will be enough for now, but will need a rework to use its own tsconfig for more advanced usage.
+- Current integration of TypeScript in limited for the Front-end, since it use the same configuration as the node web application.
+For instance, we cannot at the moment reference from our Front-End, other files, because the way to package modules is node the same for a Node app and a ES Web application.
 
-Current implementation in Front-End is dependent of the `fetch` Javascript API, [which is not usable in some browser](https://caniuse.com/fetch)
+- Current implementation in Front-End is dependent of the `fetch` Javascript API, [which is not usable in some browser](https://caniuse.com/fetch)

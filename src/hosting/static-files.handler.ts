@@ -30,7 +30,7 @@ async function ResponseWithGivenFile(f: FileInfo,  response : http.ServerRespons
     return true;
 }
 
-export const handleStaticFiles : HttpHandler = async (request: http.IncomingMessage, response : http.ServerResponse) => {
+export const handleStaticFiles : HttpHandler = async (request,response) => {
     if(!request.url || request.method !== "GET") return false;
 
     const parsedUrl = url.parse(request.url);
